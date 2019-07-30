@@ -19,7 +19,79 @@ class LoginPage extends StatelessWidget {
                   spreadRadius: 1,
                 ),
               ]),
-              //decoration: ,
+              child: Padding(
+                padding: EdgeInsets.all(5),
+                child: ListView(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "Welcome",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text("Sign in to continue"),
+                          ],
+                        ),
+                        FlatButton(
+                          child: Text("Sign Up"),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 60,
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelText: "Email",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                        ),
+                      ),
+                      style: TextStyle(
+                        // estilo do texto digitado no input
+                        fontSize: 20,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                        ),
+                      ),
+                      style: TextStyle(
+                        // estilo do texto digitado no input
+                        fontSize: 20,
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      alignment: Alignment.centerRight,
+                      child: FlatButton(
+                        child: Text("Forgot your password?"),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
