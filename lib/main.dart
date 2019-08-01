@@ -1,4 +1,4 @@
-import 'package:balta_flutter_animations/login/login.page.dart';
+import 'package:balta_flutter_animations/pages/login.page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

@@ -1,4 +1,5 @@
-import 'package:balta_flutter_animations/login/signup.page.dart';
+import 'package:balta_flutter_animations/pages/home.page.dart';
+import 'package:balta_flutter_animations/pages/signup.page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -113,7 +114,13 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()),
+                              );
+                          },
                           child: Text(
                             "Sign In",
                             style: TextStyle(
