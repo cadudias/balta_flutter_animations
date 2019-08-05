@@ -1,4 +1,6 @@
 import 'package:balta_flutter_animations/pages/login.page.dart';
+import 'package:balta_flutter_animations/themes/dark.theme.dart';
+import 'package:balta_flutter_animations/themes/light.theme.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,9 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: lightTheme(),
       home: LoginPage(),
     );
   }
