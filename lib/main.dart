@@ -1,3 +1,4 @@
+import 'package:balta_flutter_animations/pages/cart.page.dart';
 import 'package:balta_flutter_animations/pages/login.page.dart';
 import 'package:balta_flutter_animations/themes/dark.theme.dart';
 import 'package:balta_flutter_animations/themes/light.theme.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: lightTheme(),
-      home: LoginPage(),
+      home: CartPage(),
     );
   }
 }
