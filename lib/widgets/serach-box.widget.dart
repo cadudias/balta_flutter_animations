@@ -1,45 +1,55 @@
+import 'package:balta_flutter_animations/widgets/product/animated-input.widget.dart';
 import 'package:flutter/material.dart';
 
-class SearchBox extends StatelessWidget {
+class SearchBox extends StatefulWidget {
+  @override
+  _SearchBoxState createState() => _SearchBoxState();
+}
+
+class _SearchBoxState extends State<SearchBox> with SingleTickerProviderStateMixin {
+
+  bool menuOpened = false;
+  AnimationController _controller;
+
+  // inicializa o metodo pai
+  @override
+  void initState() {
+    super.initState();
+    // esse é só o controlador da animação e não a animação em si ainda
+    _controller = new AnimationController(
+      vsync: this, 
+      duration: Duration(
+        seconds: 1, // duração da animação
+      ),
+    );
+  }
+
+  // importante pra não deixar nada aberto na aplicação
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      padding: EdgeInsets.only(left: 20),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.1),
-        borderRadius: BorderRadius.all(
-          Radius.circular(128),
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-          Icon(Icons.search),
-          // o TextFormField dentro da linha precisa estra dentro de um container pra se adequar ao tamanho
-          Container(
-            width: 120, // adicionamos o width pra input do search funcionar
-            padding: EdgeInsets.only(left: 10),
-              child: TextFormField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  labelText: "Search...",
-                  labelStyle: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 16,
-                  ),
-                ),
-                style: TextStyle(
-                  // estilo do texto digitado no input
-                  fontSize: 20,
-                  color: Colors.blue,
-                ),
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        AnimatedInput(controller: _controller),
+        FlatButton(
+          onPressed: () {
+            // _controller.forward() da o play da animação
+            !menuOpened ? _controller.forward() : _controller.reverse();
+            menuOpened = !menuOpened;
+          },
+          child: AnimatedIcon(
+            icon: AnimatedIcons.menu_close,
+            progress: _controller, // precisamos do controller pra saber o progresso da animação, vai durar 1 segundo
+            semanticLabel: 'More',
           ),
-          
-        ],
-      ),
+        )
+      ],
     );
   }
 }
